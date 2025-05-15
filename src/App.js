@@ -16,7 +16,8 @@ function App() {
   const handleSubmitForm = (event) => {
     event.preventDefault();
 
-    if (!inputText) return;
+    if (!inputText) return alert("Please enter a task"); // Check if input is empty
+
     if (task.includes(inputText)) {
       alert("Item already exists");
       setInputText("");
@@ -52,8 +53,9 @@ function App() {
                 <button
                   className="dlt-btn"
                   onClick={() => {
-                    setTask((prevTask) =>
-                      prevTask.filter((_, items) => items !== index)
+                    setTask(
+                      (prevTask) =>
+                        prevTask.filter((_, items) => items !== index) // Remove task
                     );
                     alert("Confirm Item deleted");
                   }}
